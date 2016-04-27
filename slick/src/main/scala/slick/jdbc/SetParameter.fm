@@ -11,7 +11,7 @@ trait SetParameter[-T] extends ((T, PositionedParameters) => Unit) { self =>
   }
 
   def contramap[S](f: S => T): SetParameter[S] =
-    SetParameter[S]((v, pp) => sp(f(v), pp))
+    SetParameter[S]((v, pp) => self.apply(f(v), pp))
 }
 
 /** SetParameter for tuple types. */
