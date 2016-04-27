@@ -70,7 +70,7 @@ object SetParameter {
       }
   }
 
-  object SetNothing extends SetParameter[Nothing] { def apply(none: Unit, pp: PositionedParameters) = () }
+  object SetNothing extends SetParameter[Any] { def apply(a: Any, pp: PositionedParameters) = () }
 
   implicit val SetUnit: SetParameter[Unit] =
     const[Unit]
